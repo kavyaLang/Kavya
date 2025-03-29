@@ -1,0 +1,7 @@
+#ignore all files in the build directory
+build/
+
+#ignore all files in the git repository
+.git
+.gitignore
+README.md
