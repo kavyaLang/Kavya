@@ -1,7 +1,10 @@
+%option noyywrap
+
 %{
     #include <stdio.h>
     #include <stdlib.h>
     #include <string.h>
+    #include <unistd.h>
     #include "grammar.h"
 
     int current_line = 1;
@@ -12,10 +15,9 @@
         char *sval;
     } YYSTYPE;
 
-    YYSTYPE yylval; // Declare yylval
+    extern YYSTYPE yylval; // Declare yylval
 %}
 
-%option noyywrap
 
 /* Regex patterns */
 DIGIT         [0-9]
@@ -86,24 +88,4 @@ char* process_string(const char* text){
     strncpy(result, text + 1, len - 2);
     result[len - 2] = '\0';
     return result;
-}
-
-int main() {
-    int token;
-    printf("Enter a Token: ");
-    while ((token = yylex())) {
-        if (token == TOKEN_IDENTIFIER) {
-            printf("IDENTIFIER: %s\n", yylval.sval);
-            free(yylval.sval); // Free the allocated memory
-        } else if (token == TOKEN_NUMBER) {
-            printf("NUMBER: %d\n", yylval.ival);
-        } else if (token == TOKEN_STRING) {
-            printf("STRING: %s\n", yylval.sval);
-            free(yylval.sval); // Free the allocated memory
-        } else {
-            printf("TOKEN: %d\n", token);
-        }
-        printf("Enter a Token: ");
-    }
-    return 0;
 }

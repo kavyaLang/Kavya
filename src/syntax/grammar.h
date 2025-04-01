@@ -1,9 +1,5 @@
 #pragma once
 
-#ifndef TOKEN_TYPES_DEFINED
-#define TOKEN_TYPES_DEFINED
-
-
 typedef enum{
     // Single-character tokens.
     TOKEN_LEFT_PAREN,
@@ -78,5 +74,3 @@ typedef struct{
 
 void initGrammer(const char *source); // Initialize the grammar
 Token scanToken(); // Scan a token
-
-#endif
