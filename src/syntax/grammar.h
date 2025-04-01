@@ -1,6 +1,10 @@
 #pragma once
 
 typedef enum{
+    // Error and EOF
+    TOKEN_EOF,
+    TOKEN_ERROR,
+
     // Single-character tokens.
     TOKEN_LEFT_PAREN,
     TOKEN_RIGHT_PAREN,
@@ -60,8 +64,7 @@ typedef enum{
     TOKEN_WHILE,
 
     // ERROR AND EOF
-    TOKEN_ERROR,
-    TOKEN_EOF,
+    
 } TokenType;
 
 // Token struct

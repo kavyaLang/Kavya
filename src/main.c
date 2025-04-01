@@ -15,7 +15,10 @@ int main() {
     int token;
     printf("Enter a Token: ");
     while ((token = yylex())) {
-        if (token == TOKEN_IDENTIFIER) {
+
+        if (token == TOKEN_NEWLINE){
+            //Skip newlines
+        } else if (token == TOKEN_IDENTIFIER) {
             printf("IDENTIFIER: %s\n", yylval.sval);
             free(yylval.sval); 
         } else if (token == TOKEN_NUMBER) {
@@ -26,7 +29,10 @@ int main() {
         } else {
             printf("TOKEN: %d\n", token);
         }
-        printf("Enter a Token: ");
+
+        if (token == TOKEN_NEWLINE) {
+            printf("Enter a Token: ");
+        }
     }
     
     return 0;

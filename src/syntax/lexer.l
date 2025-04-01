@@ -32,7 +32,7 @@ NEWLINE       \n
 %%
 
 {WHITESPACE}    { /* Ignore whitespace */ }
-{NEWLINE}       { /* Do nothing for now */  }  /*  current_line++; return TOKEN_NEWLINE; */
+{NEWLINE}       {  current_line++; return TOKEN_NEWLINE;  }  /*  current_line++; return TOKEN_NEWLINE; */
 
 "("             { return TOKEN_LEFT_PAREN; }
 ")"             { return TOKEN_RIGHT_PAREN; }
